@@ -138,7 +138,7 @@ Each scenario listed in this document includes a sub-section that describes its 
 
 ## Application Types and Scenarios
 
-Each of the scenarios described in this document can be developed using various languages and platforms, and there are [complete code samples available on GitHub](https://github.com/AzureADSamples) for each of them. In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
+Each of the scenarios described in this document can be developed using various languages and platforms, and there are [complete code samples available on GitHub](https://github.com/azure-samples?query=azuread) for each of them. In addition, if your application needs a specific piece or segment of an end-to-end scenario, in most cases that functionality can be added independently. For example, if you have a native application that calls a web API, you can easily add a web application that also calls the web API. The following diagram illustrates these scenarios and application types, and how different components can be added:
 
 ![Application Types and scenarios](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
