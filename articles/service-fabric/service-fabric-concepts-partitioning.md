@@ -170,21 +170,21 @@ As we literally want to have one partition per letter, we can use 0 as the low k
     {
         return new[] { new ServiceReplicaListener(CreateInternalListener, "Internal", false) };
     }
-    private ICommunicationListener CreateInternalListener(StatefulServiceInitializationParameters args)
+    private ICommunicationListener CreateInternalListener(ServiceContext context)
     {
-        EndpointResourceDescription internalEndpoint = args.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
+        EndpointResourceDescription internalEndpoint = context.CodePackageActivationContext.GetEndpoint("ProcessingServiceEndpoint");
 
-        string uriPrefix = String.Format(
+        string uriPrefix = string.Format(
             "{0}://+:{1}/{2}/{3}-{4}/",
             internalEndpoint.Protocol,
             internalEndpoint.Port,
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
+            context.PartitionId,
+            context.ReplicaOrInstanceId,
             Guid.NewGuid());
 
-        string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
-        string uriPublished = uriPrefix.Replace("+", nodeIP);
-        return new HttpCommunicationListener(uriPrefix, uriPublished, this.ProcessInternalRequest);
+        string nodeIp = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
+        string uriPublished = uriPrefix.Replace("+", nodeIp);
+        return new HttpCommunicationListener(uriPrefix, uriPublished, ProcessInternalRequest);
     }
     ```
 
