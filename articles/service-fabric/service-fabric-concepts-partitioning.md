@@ -178,8 +178,8 @@ As we literally want to have one partition per letter, we can use 0 as the low k
             "{0}://+:{1}/{2}/{3}-{4}/",
             internalEndpoint.Protocol,
             internalEndpoint.Port,
-            this.ServiceInitializationParameters.PartitionId,
-            this.ServiceInitializationParameters.ReplicaId,
+            Context.PartitionId,
+            Contex.RteplicaId,
             Guid.NewGuid());
 
         string nodeIP = FabricRuntime.GetNodeContext().IPAddressOrFQDN;
